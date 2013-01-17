@@ -213,7 +213,7 @@
                 break;
             case 31: // ReturnMavLinkData
                 {
-                    NSLog(@"Received MavLink data...");
+                    NSLog(@"Received MavLink data: %i",expectedNumBytes);
                 }
 				break;
 			default: // unknown command
