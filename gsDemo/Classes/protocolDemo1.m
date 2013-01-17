@@ -72,6 +72,7 @@
 	char requestTemp[6] = {5,0,0,0,0,0};
 	char requestPot[6] = {7,0,0,0,0,0};
 	char requestDebugInstrum[6] = {20,0,0,0,0,0};
+	char requestMavLinkData[6] = {30,0,0,0,0,0};
 	int c = 0;
 	float updateRate = kUPDATERATE_SLOW;
 	thePool = [[NSAutoreleasePool alloc] init];
@@ -92,6 +93,7 @@
 				//[self queueTxBytes:[NSData dataWithBytes:requestTemp length:sizeof(requestTemp)]];
                 //[self queueTxBytes:[NSData dataWithBytes:requestPot length:sizeof(requestPot)]];
 				[self queueTxBytes:[NSData dataWithBytes:requestDebugInstrum length:sizeof(requestDebugInstrum)]];
+                [self queueTxBytes:[NSData dataWithBytes:requestMavLinkData length:sizeof(requestMavLinkData)]];
 			}
         
 		}
@@ -209,6 +211,11 @@
                     }
                 }
                 break;
+            case 31: // ReturnMavLinkData
+                {
+                    NSLog(@"Received MavLink data...");
+                }
+				break;
 			default: // unknown command
 				NSLog(@"%@ : Unknown Message: %d",theProtocol,buf[0]);
 				break;
