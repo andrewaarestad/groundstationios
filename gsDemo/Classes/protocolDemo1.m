@@ -214,6 +214,7 @@
             case 31: // ReturnMavLinkData
                 {
                     NSLog(@"Received MavLink data: %i",expectedNumBytes);
+                    MAVMessage *test = [MAVParseMessage parseMAVMessage:data];
                 }
 				break;
 			default: // unknown command

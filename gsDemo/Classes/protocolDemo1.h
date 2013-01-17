@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "mchp_mfi.h"
+#import "MAVParseMessage.h"
 
 #define MFI_UNKNOWN_HW 0
 #define	MFI_8_BIT_HW 2
