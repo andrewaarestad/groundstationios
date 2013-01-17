@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>No Accessory Hardware Found</string>
+	<string>Microchip Made For iPod Accessory Demonstration App</string>
+	<string>For more information visit www.microchip.com/mfi</string>
+	<string>Microchip Accessory Demo Hardware available to registered Apple MFI developers</string>
+</array>
+</plist>

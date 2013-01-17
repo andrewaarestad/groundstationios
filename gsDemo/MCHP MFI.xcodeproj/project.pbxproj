@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* MCHP_MFIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MCHP_MFIAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		28115B8B104C983200B14CDE /* MeterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28115B8A104C983200B14CDE /* MeterView.m */; };
+		28246823105064CF0072AE6D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28246822105064CF0072AE6D /* ExternalAccessory.framework */; };
+		283F59491048844C00F1C104 /* MICV1C.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F59481048844C00F1C104 /* MICV1C.png */; };
+		283F594C1048847400F1C104 /* mchp_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 283F594A1048847400F1C104 /* mchp_logo.png */; };
+		283F594D1048847400F1C104 /* MicrochipLogoWithTag.gif in Resources */ = {isa = PBXBuildFile; fileRef = 283F594B1048847400F1C104 /* MicrochipLogoWithTag.gif */; };
+		283F59761048868800F1C104 /* GraphingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F59751048868800F1C104 /* GraphingView.m */; };
+		2863FD2D1059773700EAAD34 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2863FD2C1059773700EAAD34 /* icon.png */; };
+		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		2899E5220DE3E06400AC0155 /* MCHP_MFIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* MCHP_MFIViewController.xib */; };
+		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
+		28D7ACF80DDB3853001CB0EB /* MCHP_MFIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* MCHP_MFIViewController.m */; };
+		4923C45416A534D200D37090 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923C45316A534D200D37090 /* Logger.m */; };
+		5F6FD57516A369530046D7D1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6FD57416A369530046D7D1 /* Default-568h@2x.png */; };
+		D84C5F8C117D269A0096C295 /* icon_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D84C5F8A117D269A0096C295 /* icon_ipad.png */; };
+		D84C5F8D117D269A0096C295 /* icon_ipod.png in Resources */ = {isa = PBXBuildFile; fileRef = D84C5F8B117D269A0096C295 /* icon_ipod.png */; };
+		D8BC26161173C17600BA7F4F /* MainWindowiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BC26151173C17600BA7F4F /* MainWindowiPad.xib */; };
+		D8BC26191173C2D800BA7F4F /* MCHP_MFIViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BC26181173C2D800BA7F4F /* MCHP_MFIViewController_ipad.xib */; };
+		D8BC27B01174E58800BA7F4F /* strings.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8BC27AF1174E58800BA7F4F /* strings.plist */; };
+		D8BE0D8D1173959A007A21C7 /* MCHP_768x1024_iPad_fullGraphic.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BE0D8A1173959A007A21C7 /* MCHP_768x1024_iPad_fullGraphic.png */; };
+		D8BE0D8E1173959A007A21C7 /* MCHP_768x1024_iPad_LogoONLY.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BE0D8B1173959A007A21C7 /* MCHP_768x1024_iPad_LogoONLY.png */; };
+		D8BE0D8F1173959A007A21C7 /* MCHP_768x1024_iPad_noLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D8BE0D8C1173959A007A21C7 /* MCHP_768x1024_iPad_noLogo.png */; };
+		D8BE0DBA1173A76D007A21C7 /* splashView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BE0DB91173A76D007A21C7 /* splashView.m */; };
+		D8DC0BAE118F6CED0027A50C /* icon_small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DC0BAC118F6CED0027A50C /* icon_small-50.png */; };
+		D8DC0BAF118F6CED0027A50C /* icon_small.png in Resources */ = {isa = PBXBuildFile; fileRef = D8DC0BAD118F6CED0027A50C /* icon_small.png */; };
+		DD86714111C18B3C006BB416 /* mchp_mfi.m in Sources */ = {isa = PBXBuildFile; fileRef = DD86714011C18B3C006BB416 /* mchp_mfi.m */; };
+		DD86719511C20C58006BB416 /* protocolDemo1.m in Sources */ = {isa = PBXBuildFile; fileRef = DD86719411C20C58006BB416 /* protocolDemo1.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* MCHP_MFIAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHP_MFIAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* MCHP_MFIAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHP_MFIAppDelegate.m; sourceTree = "<group>"; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28115B89104C983200B14CDE /* MeterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeterView.h; sourceTree = "<group>"; };
+		28115B8A104C983200B14CDE /* MeterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeterView.m; sourceTree = "<group>"; };
+		28246822105064CF0072AE6D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
+		283F59481048844C00F1C104 /* MICV1C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MICV1C.png; sourceTree = "<group>"; };
+		283F594A1048847400F1C104 /* mchp_logo.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = mchp_logo.png; sourceTree = "<group>"; };
+		283F594B1048847400F1C104 /* MicrochipLogoWithTag.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = MicrochipLogoWithTag.gif; sourceTree = "<group>"; };
+		283F59741048868800F1C104 /* GraphingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphingView.h; sourceTree = "<group>"; };
+		283F59751048868800F1C104 /* GraphingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphingView.m; sourceTree = "<group>"; };
+		2863FD2C1059773700EAAD34 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2899E5210DE3E06400AC0155 /* MCHP_MFIViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MCHP_MFIViewController.xib; sourceTree = "<group>"; };
+		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28D7ACF60DDB3853001CB0EB /* MCHP_MFIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHP_MFIViewController.h; sourceTree = "<group>"; };
+		28D7ACF70DDB3853001CB0EB /* MCHP_MFIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCHP_MFIViewController.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		32CA4F630368D1EE00C91783 /* MCHP_MFI_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHP_MFI_Prefix.pch; sourceTree = "<group>"; };
+		4923C45216A534D200D37090 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		4923C45316A534D200D37090 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		5F6FD57416A369530046D7D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* MCHP_MFI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MCHP_MFI-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		D84C5F8A117D269A0096C295 /* icon_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipad.png; sourceTree = "<group>"; };
+		D84C5F8B117D269A0096C295 /* icon_ipod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipod.png; sourceTree = "<group>"; };
+		D8BC26151173C17600BA7F4F /* MainWindowiPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowiPad.xib; sourceTree = "<group>"; };
+		D8BC26181173C2D800BA7F4F /* MCHP_MFIViewController_ipad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MCHP_MFIViewController_ipad.xib; sourceTree = "<group>"; };
+		D8BC27AF1174E58800BA7F4F /* strings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = strings.plist; sourceTree = "<group>"; };
+		D8BE0D8A1173959A007A21C7 /* MCHP_768x1024_iPad_fullGraphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MCHP_768x1024_iPad_fullGraphic.png; sourceTree = "<group>"; };
+		D8BE0D8B1173959A007A21C7 /* MCHP_768x1024_iPad_LogoONLY.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MCHP_768x1024_iPad_LogoONLY.png; sourceTree = "<group>"; };
+		D8BE0D8C1173959A007A21C7 /* MCHP_768x1024_iPad_noLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MCHP_768x1024_iPad_noLogo.png; sourceTree = "<group>"; };
+		D8BE0DB81173A76D007A21C7 /* splashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = splashView.h; sourceTree = "<group>"; };
+		D8BE0DB91173A76D007A21C7 /* splashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = splashView.m; sourceTree = "<group>"; };
+		D8DC0BAC118F6CED0027A50C /* icon_small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_small-50.png"; sourceTree = "<group>"; };
+		D8DC0BAD118F6CED0027A50C /* icon_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_small.png; sourceTree = "<group>"; };
+		DD86713F11C18B3C006BB416 /* mchp_mfi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mchp_mfi.h; sourceTree = "<group>"; };
+		DD86714011C18B3C006BB416 /* mchp_mfi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = mchp_mfi.m; sourceTree = "<group>"; };
+		DD86719311C20C58006BB416 /* protocolDemo1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = protocolDemo1.h; sourceTree = "<group>"; };
+		DD86719411C20C58006BB416 /* protocolDemo1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = protocolDemo1.m; sourceTree = "<group>"; };
+		DDCB998A11D0203600CAFC50 /* Microchip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Microchip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
+				28246823105064CF0072AE6D /* ExternalAccessory.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4923C45016A5346C00D37090 /* Logging */,
+				DD7C6D1E11C5AEFD0009DECB /* Views */,
+				DD7C6D1D11C5AEE80009DECB /* MFI Driver */,
+				D8BC264E1173CD3000BA7F4F /* Common Classes */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDCB998A11D0203600CAFC50 /* Microchip.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				5F6FD57416A369530046D7D1 /* Default-568h@2x.png */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* MCHP_MFI_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D84C5F8A117D269A0096C295 /* icon_ipad.png */,
+				D84C5F8B117D269A0096C295 /* icon_ipod.png */,
+				D8DC0BAC118F6CED0027A50C /* icon_small-50.png */,
+				D8DC0BAD118F6CED0027A50C /* icon_small.png */,
+				8D1107310486CEB800E47090 /* MCHP_MFI-Info.plist */,
+				D8BE0D8A1173959A007A21C7 /* MCHP_768x1024_iPad_fullGraphic.png */,
+				D8BE0D8B1173959A007A21C7 /* MCHP_768x1024_iPad_LogoONLY.png */,
+				D8BE0D8C1173959A007A21C7 /* MCHP_768x1024_iPad_noLogo.png */,
+				D8E6FD31116E70F5009718F0 /* iPAD_Stuff */,
+				D8E6FD2B116E7094009718F0 /* iPOD_Stuff */,
+				283F59481048844C00F1C104 /* MICV1C.png */,
+				2863FD2C1059773700EAAD34 /* icon.png */,
+				D8BC27AF1174E58800BA7F4F /* strings.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28246822105064CF0072AE6D /* ExternalAccessory.framework */,
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4923C45016A5346C00D37090 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				4923C45216A534D200D37090 /* Logger.h */,
+				4923C45316A534D200D37090 /* Logger.m */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		D8BC264E1173CD3000BA7F4F /* Common Classes */ = {
+			isa = PBXGroup;
+			children = (
+				28D7ACF60DDB3853001CB0EB /* MCHP_MFIViewController.h */,
+				28D7ACF70DDB3853001CB0EB /* MCHP_MFIViewController.m */,
+				1D3623240D0F684500981E51 /* MCHP_MFIAppDelegate.h */,
+				1D3623250D0F684500981E51 /* MCHP_MFIAppDelegate.m */,
+			);
+			name = "Common Classes";
+			sourceTree = "<group>";
+		};
+		D8E6FD2B116E7094009718F0 /* iPOD_Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				2899E5210DE3E06400AC0155 /* MCHP_MFIViewController.xib */,
+				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				283F594A1048847400F1C104 /* mchp_logo.png */,
+			);
+			name = iPOD_Stuff;
+			sourceTree = "<group>";
+		};
+		D8E6FD31116E70F5009718F0 /* iPAD_Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				D8BC26181173C2D800BA7F4F /* MCHP_MFIViewController_ipad.xib */,
+				D8BC26151173C17600BA7F4F /* MainWindowiPad.xib */,
+				283F594B1048847400F1C104 /* MicrochipLogoWithTag.gif */,
+			);
+			name = iPAD_Stuff;
+			sourceTree = "<group>";
+		};
+		DD7C6D1D11C5AEE80009DECB /* MFI Driver */ = {
+			isa = PBXGroup;
+			children = (
+				DD86719311C20C58006BB416 /* protocolDemo1.h */,
+				DD86719411C20C58006BB416 /* protocolDemo1.m */,
+				DD86713F11C18B3C006BB416 /* mchp_mfi.h */,
+				DD86714011C18B3C006BB416 /* mchp_mfi.m */,
+			);
+			name = "MFI Driver";
+			sourceTree = "<group>";
+		};
+		DD7C6D1E11C5AEFD0009DECB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				283F59741048868800F1C104 /* GraphingView.h */,
+				283F59751048868800F1C104 /* GraphingView.m */,
+				D8BE0DB81173A76D007A21C7 /* splashView.h */,
+				D8BE0DB91173A76D007A21C7 /* splashView.m */,
+				28115B89104C983200B14CDE /* MeterView.h */,
+				28115B8A104C983200B14CDE /* MeterView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* Microchip */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Microchip" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Microchip;
+			productName = "MCHP MFI";
+			productReference = DDCB998A11D0203600CAFC50 /* Microchip.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Microchip Technology";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MCHP MFI" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* Microchip */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				2899E5220DE3E06400AC0155 /* MCHP_MFIViewController.xib in Resources */,
+				283F59491048844C00F1C104 /* MICV1C.png in Resources */,
+				283F594C1048847400F1C104 /* mchp_logo.png in Resources */,
+				283F594D1048847400F1C104 /* MicrochipLogoWithTag.gif in Resources */,
+				2863FD2D1059773700EAAD34 /* icon.png in Resources */,
+				D8BE0D8D1173959A007A21C7 /* MCHP_768x1024_iPad_fullGraphic.png in Resources */,
+				D8BE0D8E1173959A007A21C7 /* MCHP_768x1024_iPad_LogoONLY.png in Resources */,
+				D8BE0D8F1173959A007A21C7 /* MCHP_768x1024_iPad_noLogo.png in Resources */,
+				D8BC26161173C17600BA7F4F /* MainWindowiPad.xib in Resources */,
+				D8BC26191173C2D800BA7F4F /* MCHP_MFIViewController_ipad.xib in Resources */,
+				D8BC27B01174E58800BA7F4F /* strings.plist in Resources */,
+				D84C5F8C117D269A0096C295 /* icon_ipad.png in Resources */,
+				D84C5F8D117D269A0096C295 /* icon_ipod.png in Resources */,
+				D8DC0BAE118F6CED0027A50C /* icon_small-50.png in Resources */,
+				D8DC0BAF118F6CED0027A50C /* icon_small.png in Resources */,
+				5F6FD57516A369530046D7D1 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* MCHP_MFIAppDelegate.m in Sources */,
+				28D7ACF80DDB3853001CB0EB /* MCHP_MFIViewController.m in Sources */,
+				283F59761048868800F1C104 /* GraphingView.m in Sources */,
+				28115B8B104C983200B14CDE /* MeterView.m in Sources */,
+				D8BE0DBA1173A76D007A21C7 /* splashView.m in Sources */,
+				DD86714111C18B3C006BB416 /* mchp_mfi.m in Sources */,
+				DD86719511C20C58006BB416 /* protocolDemo1.m in Sources */,
+				4923C45416A534D200D37090 /* Logger.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MCHP_MFI_Prefix.pch;
+				INFOPLIST_FILE = "MCHP_MFI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Microchip;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PREBINDING = NO;
+				PRODUCT_NAME = Microchip;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PREBINDING = NO;
+				PRODUCT_NAME = Microchip;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = NO;
+			};
+			name = Release;
+		};
+		DDBCB7D81242BD1100CF8E2B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PREBINDING = NO;
+				PRODUCT_NAME = Microchip;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		DDBCB7D91242BD1100CF8E2B /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MCHP_MFI_Prefix.pch;
+				INFOPLIST_FILE = "MCHP_MFI-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = Microchip;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Distribution;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Microchip" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				DDBCB7D91242BD1100CF8E2B /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MCHP MFI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				DDBCB7D81242BD1100CF8E2B /* Distribution */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
