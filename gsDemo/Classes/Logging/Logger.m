@@ -10,10 +10,7 @@
 
 @implementation Logger
 
-static NSFileManager *fileManager;
-
-static NSString *logsPath;
-static NSString *currentDataFile;
+static Logger *sharedLogger;
 
 
 
@@ -26,22 +23,21 @@ static NSString *currentDataFile;
 // If no log is currently set, create one.
 +(void)log:(NSString*)message
 {
-    if (!fileManager)
+    if (!sharedLogger)
     {
-        [self initFileManager];
-        [self ensureLogsPathExists];
+        [self initLogger];
     }
     
-    if (!currentDataFile)
+    if (!sharedLogger.currentDataFile)
     {
-        currentDataFile = [self getNewDataFileName];
-        [fileManager createFileAtPath:currentDataFile contents:nil attributes:nil];
+        sharedLogger.currentDataFile = [sharedLogger getNewDataFileName];
+        [sharedLogger.fileManager createFileAtPath:sharedLogger.currentDataFile contents:nil attributes:nil];
     }
     
     NSString *outputString = [NSString stringWithFormat:@"%@: %@\n",[[NSDate date] description],message];
     
-    NSLog(@"file: %@",currentDataFile);
-    NSFileHandle *output = [NSFileHandle fileHandleForUpdatingAtPath:currentDataFile];
+    NSLog(@"file: %@ size: %@",sharedLogger.currentDataFile,[[sharedLogger.fileManager attributesOfItemAtPath:sharedLogger.currentDataFile error:nil] valueForKey:@"NSFileSize"]);
+    NSFileHandle *output = [NSFileHandle fileHandleForUpdatingAtPath:sharedLogger.currentDataFile];
     [output seekToEndOfFile];
     [output writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -54,8 +50,14 @@ static NSString *currentDataFile;
 // PRIVATE METHODS
 // ================================================
 
++(void)initLogger
+{
+    sharedLogger = [[Logger alloc] init];
+    [sharedLogger initFileManager];
+    [sharedLogger ensureLogsPathExists];
+}
 
-+(void)initFileManager
+-(void)initFileManager
 {
     NSArray *dirPaths;
     NSString *docsDir;
@@ -65,18 +67,18 @@ static NSString *currentDataFile;
     
     docsDir = [dirPaths objectAtIndex:0];
     
-    fileManager = [[NSFileManager alloc] init];
-    logsPath = [docsDir stringByAppendingPathComponent:@"groundStation"];
+    self.fileManager = [[NSFileManager alloc] init];
+    self.logsPath = [docsDir stringByAppendingPathComponent:@"groundStation"];
     
 }
 
-+(void)ensureLogsPathExists
+-(void)ensureLogsPathExists
 {
-    if (![fileManager fileExistsAtPath:logsPath isDirectory:nil])
+    if (![self.fileManager fileExistsAtPath:self.logsPath isDirectory:nil])
     {
         NSError *error;
         
-        if (![fileManager createDirectoryAtPath:logsPath withIntermediateDirectories:YES attributes:nil error:&error])
+        if (![self.fileManager createDirectoryAtPath:self.logsPath withIntermediateDirectories:YES attributes:nil error:&error])
         {
             //[self showError:[error localizedDescription]];
         }
@@ -85,7 +87,7 @@ static NSString *currentDataFile;
 }
 
 
-+(NSString*)getNewDataFileName {
+-(NSString*)getNewDataFileName {
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"yyyy_MM_dd"];
@@ -100,7 +102,7 @@ static NSString *currentDataFile;
     
     NSString *fileStr = [NSString stringWithFormat:@"%@_%@.txt", theDate,theTime];
     
-    return [logsPath stringByAppendingPathComponent:fileStr];
+    return [self.logsPath stringByAppendingPathComponent:fileStr];
 }
 
 

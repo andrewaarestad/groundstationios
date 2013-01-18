@@ -16,4 +16,9 @@
 
 
 
+@property (nonatomic, strong) NSFileManager *fileManager;
+
+@property (nonatomic, strong) NSString *logsPath;
+@property (nonatomic, strong) NSString *currentDataFile;
+
 @end

@@ -9,7 +9,7 @@
 #import "MAVHeartbeat.h"
 //Here to avoid circular reference
 #import "MAVMessage.h"
-
+#import "Logger.h"
 
 @implementation MAVHeartbeat
 
@@ -30,8 +30,10 @@
     [mavMsg.payload getBytes:&system_status range:NSMakeRange(7, 1)];
     [mavMsg.payload getBytes:&mavlink_version range:NSMakeRange(8, 1)];
     
+    NSString *logString = [NSString stringWithFormat:@"MavCustom Mode %i MavType %i, MavAutopilot %i MavBaseMode %i MavSysStatus %i MavLinkVersion %i",custom_mode,type,autopilot,base_mode,system_status,mavlink_version];
+    NSLog(@"%@",logString);
     
-    NSLog(@"MavCustom Mode %i MavType %i, MavAutopilot %i MavBaseMode %i MavSysStatus %i MavLinkVersion %i",custom_mode,type,autopilot,base_mode,system_status,mavlink_version);
+    [Logger log:logString];
     
     //This will need to change
     return (MAVHeartbeat *)mavMsg;
