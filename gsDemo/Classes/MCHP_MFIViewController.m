@@ -8,6 +8,7 @@
 
 #import "MCHP_MFIViewController.h"
 #import <DropboxSDK/DropboxSDK.h>
+#import "Logger.h"
 
 @implementation MCHP_MFIViewController
 
@@ -57,10 +58,10 @@
     if (![[DBSession sharedSession] isLinked]) {
         NSLog(@"Linking to Dropbox account...");
         [[DBSession sharedSession] linkFromController:self];
+    } else {
+        NSLog(@"Dropbox already linked.");
     }
     
-    NSLog(@"Message 1");
-    NSLog(@"Message 2");
 }
 
 
@@ -80,11 +81,17 @@
 }
 
 - (void)viewDidUnload {
+    [logFileSize release];
+    logFileSize = nil;
+    [logFileName release];
+    logFileName = nil;
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc {
+    [logFileName release];
+    [logFileSize release];
     [super dealloc];
 }
 
@@ -115,6 +122,10 @@
 	{
 		led &= ~(0x01 << [(UISwitch *)sender tag]);
 	}
+}
+
+- (IBAction)newLogButtonPressed:(id)sender {
+    [Logger userPressedNewLogButton];
 }
 
 - (IBAction) updateStateSW1:(BOOL)a SW2:(BOOL)b SW3:(BOOL)c SW4:(BOOL)d
@@ -195,5 +206,16 @@
     [infoLabel setText:str];
     [str release];
 }
+
+- (void) setNewLogFileName:(NSString*)newName
+{
+    [self.logFileName setText:newName];
+}
+
+- (void) setNewLogFileSize:(NSString*)newSize
+{
+    [self.logFileSize setText:newSize];
+}
+
 
 @end

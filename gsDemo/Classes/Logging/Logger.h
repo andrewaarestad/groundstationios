@@ -16,6 +16,7 @@
 
 
 +(void)log:(NSString*)message;
++(void)userPressedNewLogButton;
 
 
 

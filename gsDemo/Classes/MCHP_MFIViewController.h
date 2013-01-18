@@ -21,6 +21,9 @@
 	IBOutlet UISlider *volumeSlider;
     IBOutlet UILabel *infoLabel;
     
+    IBOutlet UILabel *logFileName;
+    IBOutlet UILabel *logFileSize;
+    
 	SEL volumeUpdater;
 	SEL ledUpdater;
 	
@@ -32,7 +35,12 @@
 @property(nonatomic) float volume;
 @property(nonatomic) uint8_t led;
 
+@property (nonatomic,strong) UILabel *logFileName;
+@property (nonatomic,strong) UILabel *logFileSize;
+
 - (IBAction) updateLED:(id)sender;
+
+- (IBAction)newLogButtonPressed:(id)sender;
 
 - (IBAction) updateStateSW1:(BOOL)a SW2:(BOOL)b SW3:(BOOL)c SW4:(BOOL)d;
 
@@ -49,6 +57,8 @@
 			 BoardIdentifier:(NSString *)boardStr
 				  updateRate:(NSString *)updateStr;
 
+- (void) setNewLogFileName:(NSString*)newName;
+- (void) setNewLogFileSize:(NSString*)newSize;
 
 @end
 

@@ -13,6 +13,8 @@
 
 @implementation MCHP_MFIAppDelegate
 
+static MCHP_MFIAppDelegate *shared;
+
 @synthesize window;
 @synthesize viewController;
 
@@ -113,6 +115,7 @@
      root:kDBRootAppFolder];
     [DBSession setSharedSession:dbSession];
 
+    shared = self;
 		
 	return YES;
 }
@@ -200,5 +203,10 @@
     return NO;
 }
 
+
++(MCHP_MFIAppDelegate*)sharedDelegate
+{
+    return shared;
+}
 
 @end

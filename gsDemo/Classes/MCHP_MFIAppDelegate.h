@@ -32,5 +32,7 @@
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet MCHP_MFIViewController *viewController;
 
++(MCHP_MFIAppDelegate*)sharedDelegate;
+
 @end
 
