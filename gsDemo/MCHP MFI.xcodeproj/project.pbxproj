@@ -80,12 +80,13 @@
 		5FCF0D5816A88C27005652AE /* MAVMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAVMessage.m; path = MAVLink/Base/MAVMessage.m; sourceTree = "<group>"; };
 		5FCF0D6916A8AC6D005652AE /* MAVHeartbeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVHeartbeat.h; path = MAVLink/MAVHeartbeat.h; sourceTree = "<group>"; };
 		5FCF0D6A16A8AC6D005652AE /* MAVHeartbeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAVHeartbeat.m; path = MAVLink/MAVHeartbeat.m; sourceTree = "<group>"; };
-		5FCF0D6C16A8ACCA005652AE /* MAVEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MAVEnums.h; path = MAVLink/Base/MAVEnums.h; sourceTree = "<group>"; };
 		5FCF0D6D16A8B0D2005652AE /* MAVMessageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVMessageTypes.h; path = MAVLink/MAVMessageTypes.h; sourceTree = "<group>"; };
 		5FCF0D6F16A8BA2D005652AE /* MAVParseMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVParseMessage.h; path = MAVLink/MAVParseMessage.h; sourceTree = "<group>"; };
 		5FCF0D7016A8BA2D005652AE /* MAVParseMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAVParseMessage.m; path = MAVLink/MAVParseMessage.m; sourceTree = "<group>"; };
 		5FCF0D7216A8CC4E005652AE /* MAVRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVRadio.h; path = MAVLink/Messages/MAVRadio.h; sourceTree = "<group>"; };
 		5FCF0D7316A8CC4E005652AE /* MAVRadio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAVRadio.m; path = MAVLink/Messages/MAVRadio.m; sourceTree = "<group>"; };
+		5FCF0DE416A8F400005652AE /* mavlink_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mavlink_types.h; sourceTree = "<group>"; };
+		5FCF0DE516A8F4C5005652AE /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MCHP_MFI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MCHP_MFI-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D84C5F8A117D269A0096C295 /* icon_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipad.png; sourceTree = "<group>"; };
 		D84C5F8B117D269A0096C295 /* icon_ipod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipod.png; sourceTree = "<group>"; };
@@ -225,9 +226,10 @@
 		5FCF0D5616A88B34005652AE /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				5FCF0DE516A8F4C5005652AE /* common.h */,
+				5FCF0DE416A8F400005652AE /* mavlink_types.h */,
 				5FCF0D5716A88C27005652AE /* MAVMessage.h */,
 				5FCF0D5816A88C27005652AE /* MAVMessage.m */,
-				5FCF0D6C16A8ACCA005652AE /* MAVEnums.h */,
 			);
 			name = Base;
 			sourceTree = "<group>";
