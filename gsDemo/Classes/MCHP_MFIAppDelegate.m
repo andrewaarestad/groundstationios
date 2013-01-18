@@ -8,6 +8,8 @@
 
 #import "MCHP_MFIAppDelegate.h"
 #import "MCHP_MFIViewController.h"
+#import <DropboxSDK/DropboxSDK.h>
+#import "Constants.h"
 
 @implementation MCHP_MFIAppDelegate
 
@@ -97,10 +99,19 @@
 	demo = [[protocolDemo1 alloc] init];
 	
 	alertView = [[UIAlertView alloc] initWithTitle:@"Hardware Not Found"
-										   message:@"No matching accessory hardware is attached"
+										   message:@"GroundStation module is not attached."
 										  delegate:self 
 								 cancelButtonTitle:@"Retry" 
 								 otherButtonTitles:@"More Info", nil];
+    
+    // Start Dropbox connection
+    
+    DBSession* dbSession =
+    [[DBSession alloc]
+     initWithAppKey:[Constants dropBoxAppKey]
+     appSecret:[Constants dropBoxAppSecret]
+     root:kDBRootAppFolder];
+    [DBSession setSharedSession:dbSession];
 
 		
 	return YES;
@@ -174,4 +185,20 @@
 			break;
 	}
 }
+
+
+// Added to support Dropbox auth
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+            // At this point you can start making API calls
+        }
+        return YES;
+    }
+    // Add whatever other url handling code your app requires here
+    return NO;
+}
+
+
 @end

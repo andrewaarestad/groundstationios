@@ -23,6 +23,10 @@
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* MCHP_MFIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* MCHP_MFIViewController.m */; };
 		4923C45416A534D200D37090 /* Logger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923C45316A534D200D37090 /* Logger.m */; };
+		4923C47E16A8D93000D37090 /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4923C47D16A8D93000D37090 /* DropboxSDK.framework */; };
+		4923C48216A8D9F700D37090 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923C48116A8D9F700D37090 /* Constants.m */; };
+		4923C48416A8DD3900D37090 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4923C48316A8DD3900D37090 /* Security.framework */; };
+		4923C48616A8DD6100D37090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4923C48516A8DD6100D37090 /* QuartzCore.framework */; };
 		5F6FD57516A369530046D7D1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F6FD57416A369530046D7D1 /* Default-568h@2x.png */; };
 		5FCF0D5916A88C27005652AE /* MAVMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF0D5816A88C27005652AE /* MAVMessage.m */; };
 		5FCF0D6B16A8AC6D005652AE /* MAVHeartbeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF0D6A16A8AC6D005652AE /* MAVHeartbeat.m */; };
@@ -66,6 +70,11 @@
 		32CA4F630368D1EE00C91783 /* MCHP_MFI_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCHP_MFI_Prefix.pch; sourceTree = "<group>"; };
 		4923C45216A534D200D37090 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
 		4923C45316A534D200D37090 /* Logger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logger.m; sourceTree = "<group>"; };
+		4923C47D16A8D93000D37090 /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		4923C48016A8D9F700D37090 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4923C48116A8D9F700D37090 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		4923C48316A8DD3900D37090 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4923C48516A8DD6100D37090 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5F6FD57416A369530046D7D1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5FCF0D5716A88C27005652AE /* MAVMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVMessage.h; path = MAVLink/Base/MAVMessage.h; sourceTree = "<group>"; };
 		5FCF0D5816A88C27005652AE /* MAVMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAVMessage.m; path = MAVLink/Base/MAVMessage.m; sourceTree = "<group>"; };
@@ -102,10 +111,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4923C48616A8DD6100D37090 /* QuartzCore.framework in Frameworks */,
+				4923C48416A8DD3900D37090 /* Security.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				28246823105064CF0072AE6D /* ExternalAccessory.framework in Frameworks */,
+				4923C47E16A8D93000D37090 /* DropboxSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +147,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				4923C48516A8DD6100D37090 /* QuartzCore.framework */,
+				4923C48316A8DD3900D37090 /* Security.framework */,
 				5F6FD57416A369530046D7D1 /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -150,6 +164,8 @@
 			children = (
 				32CA4F630368D1EE00C91783 /* MCHP_MFI_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				4923C48016A8D9F700D37090 /* Constants.h */,
+				4923C48116A8D9F700D37090 /* Constants.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -177,6 +193,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4923C47D16A8D93000D37090 /* DropboxSDK.framework */,
 				28246822105064CF0072AE6D /* ExternalAccessory.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -374,6 +391,7 @@
 				5FCF0D6B16A8AC6D005652AE /* MAVHeartbeat.m in Sources */,
 				5FCF0D7116A8BA2D005652AE /* MAVParseMessage.m in Sources */,
 				5FCF0D7416A8CC4F005652AE /* MAVRadio.m in Sources */,
+				4923C48216A8D9F700D37090 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +406,10 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -466,6 +488,10 @@
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -7,6 +7,7 @@
 //
 
 #import "MCHP_MFIViewController.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 @implementation MCHP_MFIViewController
 
@@ -51,6 +52,16 @@
     led = 0xFF;
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (![[DBSession sharedSession] isLinked]) {
+        NSLog(@"Linking to Dropbox account...");
+        [[DBSession sharedSession] linkFromController:self];
+    }
+    
+    NSLog(@"Message 1");
+    NSLog(@"Message 2");
+}
 
 
 /*

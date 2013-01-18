@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <DropboxSDK/DropboxSDK.h>
 
-@interface Logger : NSObject
-
+@interface Logger : NSObject <DBRestClientDelegate>
+{
+    DBRestClient *restClient;
+}
 
 
 +(void)log:(NSString*)message;
@@ -20,5 +23,8 @@
 
 @property (nonatomic, strong) NSString *logsPath;
 @property (nonatomic, strong) NSString *currentDataFile;
+
+
+- (DBRestClient*)dbClient;
 
 @end

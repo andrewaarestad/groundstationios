@@ -43,6 +43,10 @@ static Logger *sharedLogger;
     
     [output closeFile];
     
+    
+    // Upload log to Dropbox
+    //[[sharedLogger dbClient] uploadFile:[sharedLogger.currentDataFile lastPathComponent] toPath:@"/" withParentRev:nil fromPath:sharedLogger.currentDataFile];
+    
 }
 
 
@@ -103,6 +107,16 @@ static Logger *sharedLogger;
     NSString *fileStr = [NSString stringWithFormat:@"%@_%@.txt", theDate,theTime];
     
     return [self.logsPath stringByAppendingPathComponent:fileStr];
+}
+
+- (DBRestClient*)dbClient
+{
+    if (!restClient) {
+        restClient =
+        [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        restClient.delegate = self;
+    }
+    return restClient;
 }
 
 
