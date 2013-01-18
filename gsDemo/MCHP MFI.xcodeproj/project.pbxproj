@@ -147,8 +147,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				4923C48516A8DD6100D37090 /* QuartzCore.framework */,
-				4923C48316A8DD3900D37090 /* Security.framework */,
 				5F6FD57416A369530046D7D1 /* Default-568h@2x.png */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -193,6 +191,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4923C48516A8DD6100D37090 /* QuartzCore.framework */,
+				4923C48316A8DD3900D37090 /* Security.framework */,
 				4923C47D16A8D93000D37090 /* DropboxSDK.framework */,
 				28246822105064CF0072AE6D /* ExternalAccessory.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
