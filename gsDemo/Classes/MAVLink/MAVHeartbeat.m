@@ -23,16 +23,15 @@
     uint8_t     mavlink_version;	//uint8_t_mavlink_version	MAVLink version, not writable by user, gets added by protocol
                                     //because of magic data type: uint8_t_mavlink_version
     
-    [mavMsg.payload getBytes:&type range:NSMakeRange(0, 1)];
-    //message.type = [NSNumber numberWithUnsignedChar:type];
-    [mavMsg.payload getBytes:&autopilot range:NSMakeRange(1, 1)];
-    [mavMsg.payload getBytes:&base_mode range:NSMakeRange(2, 1)];
-    [mavMsg.payload getBytes:&custom_mode range:NSMakeRange(3, 4)];
-    [mavMsg.payload getBytes:&system_status range:NSMakeRange(8, 1)];
-    [mavMsg.payload getBytes:&mavlink_version range:NSMakeRange(9, 1)];
+    [mavMsg.payload getBytes:&custom_mode range:NSMakeRange(0, 4)];
+    [mavMsg.payload getBytes:&type range:NSMakeRange(4, 1)];
+    [mavMsg.payload getBytes:&autopilot range:NSMakeRange(5, 1)];
+    [mavMsg.payload getBytes:&base_mode range:NSMakeRange(6, 1)];
+    [mavMsg.payload getBytes:&system_status range:NSMakeRange(7, 1)];
+    [mavMsg.payload getBytes:&mavlink_version range:NSMakeRange(8, 1)];
     
     
-    NSLog(@"MavType %i",type);
+    NSLog(@"MavCustom Mode %i MavType %i, MavAutopilot %i MavBaseMode %i MavSysStatus %i MavLinkVersion %i",custom_mode,type,autopilot,base_mode,system_status,mavlink_version);
     
     //This will need to change
     return (MAVHeartbeat *)mavMsg;

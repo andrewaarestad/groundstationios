@@ -27,6 +27,7 @@
 		5FCF0D5916A88C27005652AE /* MAVMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF0D5816A88C27005652AE /* MAVMessage.m */; };
 		5FCF0D6B16A8AC6D005652AE /* MAVHeartbeat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF0D6A16A8AC6D005652AE /* MAVHeartbeat.m */; };
 		5FCF0D7116A8BA2D005652AE /* MAVParseMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF0D7016A8BA2D005652AE /* MAVParseMessage.m */; };
+		5FCF0D7416A8CC4F005652AE /* MAVRadio.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FCF0D7316A8CC4E005652AE /* MAVRadio.m */; };
 		D84C5F8C117D269A0096C295 /* icon_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = D84C5F8A117D269A0096C295 /* icon_ipad.png */; };
 		D84C5F8D117D269A0096C295 /* icon_ipod.png in Resources */ = {isa = PBXBuildFile; fileRef = D84C5F8B117D269A0096C295 /* icon_ipod.png */; };
 		D8BC26161173C17600BA7F4F /* MainWindowiPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8BC26151173C17600BA7F4F /* MainWindowiPad.xib */; };
@@ -74,6 +75,8 @@
 		5FCF0D6D16A8B0D2005652AE /* MAVMessageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVMessageTypes.h; path = MAVLink/MAVMessageTypes.h; sourceTree = "<group>"; };
 		5FCF0D6F16A8BA2D005652AE /* MAVParseMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVParseMessage.h; path = MAVLink/MAVParseMessage.h; sourceTree = "<group>"; };
 		5FCF0D7016A8BA2D005652AE /* MAVParseMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAVParseMessage.m; path = MAVLink/MAVParseMessage.m; sourceTree = "<group>"; };
+		5FCF0D7216A8CC4E005652AE /* MAVRadio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MAVRadio.h; path = MAVLink/Messages/MAVRadio.h; sourceTree = "<group>"; };
+		5FCF0D7316A8CC4E005652AE /* MAVRadio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MAVRadio.m; path = MAVLink/Messages/MAVRadio.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* MCHP_MFI-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MCHP_MFI-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D84C5F8A117D269A0096C295 /* icon_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipad.png; sourceTree = "<group>"; };
 		D84C5F8B117D269A0096C295 /* icon_ipod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_ipod.png; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				5FCF0D6D16A8B0D2005652AE /* MAVMessageTypes.h */,
 				5FCF0D6916A8AC6D005652AE /* MAVHeartbeat.h */,
 				5FCF0D6A16A8AC6D005652AE /* MAVHeartbeat.m */,
+				5FCF0D7216A8CC4E005652AE /* MAVRadio.h */,
+				5FCF0D7316A8CC4E005652AE /* MAVRadio.m */,
 			);
 			name = Messages;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				5FCF0D5916A88C27005652AE /* MAVMessage.m in Sources */,
 				5FCF0D6B16A8AC6D005652AE /* MAVHeartbeat.m in Sources */,
 				5FCF0D7116A8BA2D005652AE /* MAVParseMessage.m in Sources */,
+				5FCF0D7416A8CC4F005652AE /* MAVRadio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
