@@ -15,7 +15,8 @@
 }
 
 
-+(void)log:(NSString*)message;
++(void)logDebug:(NSString*)message;
++(void)logData:(NSData*)data;
 +(void)userPressedNewLogButton;
 
 
@@ -24,7 +25,16 @@
 
 @property (nonatomic, strong) NSString *logsPath;
 @property (nonatomic, strong) NSString *currentDataFile;
+@property (nonatomic, strong) NSString *currentLogFile;
 
+@property (nonatomic, strong) NSDate *lastDisplayUpdateTime;
+@property (nonatomic) double lastDisplayUpdateFileSize;
+@property (nonatomic, strong) NSString *lastDisplayUpdateFileName;
+
+@property (nonatomic, strong) NSDate *currentDisplayUpdateTime;
+@property (nonatomic) double currentDisplayUpdateFileSize;
+@property (nonatomic, strong) NSString *currentDisplayUpdateFileName;
+@property (nonatomic, strong) NSString *currentBytesPerSec;
 
 - (DBRestClient*)dbClient;
 

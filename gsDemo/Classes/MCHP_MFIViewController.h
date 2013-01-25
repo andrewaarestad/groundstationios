@@ -23,6 +23,7 @@
     
     IBOutlet UILabel *logFileName;
     IBOutlet UILabel *logFileSize;
+    IBOutlet UILabel *logBytesPerSec;
     
 	SEL volumeUpdater;
 	SEL ledUpdater;
@@ -37,6 +38,7 @@
 
 @property (nonatomic,strong) UILabel *logFileName;
 @property (nonatomic,strong) UILabel *logFileSize;
+@property (nonatomic,strong) UILabel *logBytesPerSec;
 
 - (IBAction) updateLED:(id)sender;
 
@@ -59,6 +61,7 @@
 
 - (void) setNewLogFileName:(NSString*)newName;
 - (void) setNewLogFileSize:(NSString*)newSize;
+- (void) setNewLogBytesPerSec:(NSString*)newBps;
 
 @end
 

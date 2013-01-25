@@ -7,31 +7,43 @@
 //
 
 #import "MAVParseMessage.h"
+#import "Logger.h"
 
 @implementation MAVParseMessage
 
 +(id)parseMAVMessage:(NSData *)data
 {
     //Chop off the message id byte on the front
-    NSData *MAVData = [data subdataWithRange:NSMakeRange(1, [data length]-1)];
+    NSData *mavData = [data subdataWithRange:NSMakeRange(1, [data length]-1)];
     
-    MAVMessage *mavMessage = [MAVMessage initWithData:MAVData];
+    // Send to data log
+    [Logger logData:mavData];
     
-    switch ([mavMessage.msgid integerValue]) {
-            //TODO: Change this to an enum ASAP
-        case 0:
-        {
-            MAVHeartbeat *mavHeartbeat = [MAVHeartbeat initWithMAVMsg:mavMessage];
-            return mavHeartbeat;
-            break;
+    MAVMessage *mavMessage = [MAVMessage initWithData:mavData];
+    
+    if (mavMessage)
+    {
+        switch ([mavMessage.msgid integerValue]) {
+                //TODO: Change this to an enum ASAP
+            case 0:
+            {
+                MAVHeartbeat *mavHeartbeat = [MAVHeartbeat initWithMAVMsg:mavMessage];
+                return mavHeartbeat;
+                break;
+            }
+                
+            default:
+            {
+                NSLog(@"MessageId: %@ not yet handled",mavMessage.msgid);
+                return mavMessage;
+                break;
+            }
         }
-            
-        default:
-        {
-            NSLog(@"MessageId: %@ not yet handled",mavMessage.msgid);
-            return mavMessage;
-            break;
-        }
+    }
+    else
+    {
+        NSLog(@"MAVParseMessage: Skipping invalid data.");
+        return nil;
     }
 }
 @end

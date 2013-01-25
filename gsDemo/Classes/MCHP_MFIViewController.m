@@ -81,6 +81,8 @@
 }
 
 - (void)viewDidUnload {
+    [logBytesPerSec release];
+    logBytesPerSec = nil;
     [logFileSize release];
     logFileSize = nil;
     [logFileName release];
@@ -92,6 +94,7 @@
 - (void)dealloc {
     [logFileName release];
     [logFileSize release];
+    [logBytesPerSec release];
     [super dealloc];
 }
 
@@ -217,5 +220,9 @@
     [self.logFileSize setText:newSize];
 }
 
+- (void) setNewLogBytesPerSec:(NSString*)newBps
+{
+    [self.logBytesPerSec setText:newBps];
+}
 
 @end

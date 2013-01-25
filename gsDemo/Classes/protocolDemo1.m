@@ -206,7 +206,7 @@
                     for (NSString *msg in messages)
                     {
                         NSLog(@"Received message %i: %@",idx,msg);
-                        //[Logger log:msg];
+                        //[Logger logDebug:msg];
                         idx++;
                     }
                 }
@@ -214,7 +214,16 @@
             case 31: // ReturnMavLinkData
                 {
                     NSLog(@"Received MavLink data: %i",expectedNumBytes);
-                    MAVMessage *test = [MAVParseMessage parseMAVMessage:data];
+                    MAVMessage *message = [MAVParseMessage parseMAVMessage:data];
+                    
+                    if (message)
+                    {
+                        NSLog(@"Parsed MAVMessage: %@",[message description]);
+                    }
+                    else
+                    {
+                        NSLog(@"Warning: Message data was invalid.");
+                    }
                 }
 				break;
 			default: // unknown command

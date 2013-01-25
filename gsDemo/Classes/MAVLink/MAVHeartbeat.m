@@ -25,23 +25,32 @@
     
     MAVHeartbeat *mavHeartbeat = [[MAVHeartbeat alloc] init];
     
-    [mavMsg.payload getBytes:&custom_mode range:NSMakeRange(0, 4)];
-    mavHeartbeat.custom_mode = custom_mode;
-    [mavMsg.payload getBytes:&type range:NSMakeRange(4, 1)];
-    mavHeartbeat.type = type;
-    [mavMsg.payload getBytes:&autopilot range:NSMakeRange(5, 1)];
-    mavHeartbeat.autopilot = autopilot;
-    [mavMsg.payload getBytes:&base_mode range:NSMakeRange(6, 1)];
-    mavHeartbeat.base_mode = base_mode;
-    [mavMsg.payload getBytes:&system_status range:NSMakeRange(7, 1)];
-    mavHeartbeat.system_status = system_status;
-    [mavMsg.payload getBytes:&mavlink_version range:NSMakeRange(8, 1)];
-    mavHeartbeat.mavlink_version = [NSNumber numberWithUnsignedChar:mavlink_version];
+    @try
+    {
+        [mavMsg.payload getBytes:&custom_mode range:NSMakeRange(0, 4)];
+        mavHeartbeat.custom_mode = custom_mode;
+        [mavMsg.payload getBytes:&type range:NSMakeRange(4, 1)];
+        mavHeartbeat.type = type;
+        [mavMsg.payload getBytes:&autopilot range:NSMakeRange(5, 1)];
+        mavHeartbeat.autopilot = autopilot;
+        [mavMsg.payload getBytes:&base_mode range:NSMakeRange(6, 1)];
+        mavHeartbeat.base_mode = base_mode;
+        [mavMsg.payload getBytes:&system_status range:NSMakeRange(7, 1)];
+        mavHeartbeat.system_status = system_status;
+        [mavMsg.payload getBytes:&mavlink_version range:NSMakeRange(8, 1)];
+        mavHeartbeat.mavlink_version = [NSNumber numberWithUnsignedChar:mavlink_version];
+        NSString *logString = [NSString stringWithFormat:@"MavCustom Mode %i MavType %i, MavAutopilot %i MavBaseMode %i MavSysStatus %i MavLinkVersion %i",custom_mode,type,autopilot,base_mode,system_status,mavlink_version];
+        NSLog(@"%@",logString);
+        
+        
+        [Logger logDebug:logString];
+        
+    }
+    @catch (NSException *e) {
+        [Logger logDebug:[NSString stringWithFormat:@"Warning: Invalid MAVLink data received, discarding: %@",[e description]]];
+        return nil;
+    }
     
-    NSString *logString = [NSString stringWithFormat:@"MavCustom Mode %i MavType %i, MavAutopilot %i MavBaseMode %i MavSysStatus %i MavLinkVersion %i",custom_mode,type,autopilot,base_mode,system_status,mavlink_version];
-    NSLog(@"%@",logString);
-    
-    [Logger log:logString];
     
     //This will need to change
     return (MAVHeartbeat *)mavMsg;

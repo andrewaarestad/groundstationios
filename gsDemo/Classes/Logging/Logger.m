@@ -24,7 +24,36 @@ static Logger *sharedLogger;
 
 // Write a string to logfile
 // If no log is currently set, create one.
-+(void)log:(NSString*)message
++(void)logDebug:(NSString*)message
+{
+    if (!sharedLogger)
+    {
+        [self initLogger];
+    }
+    
+    if (!sharedLogger.currentDataFile)
+    {
+        [sharedLogger setupNewDataFile];
+    }
+    if (!sharedLogger.currentLogFile)
+    {
+        [sharedLogger setupNewLogFile];
+    }
+    
+    NSString *outputString = [NSString stringWithFormat:@"%@: %@\n",[[NSDate date] description],message];
+    
+    NSLog(@"wrote to debug file: %@ size: %@",sharedLogger.currentLogFile,[[sharedLogger.fileManager attributesOfItemAtPath:sharedLogger.currentLogFile error:nil] valueForKey:@"NSFileSize"]);
+    NSFileHandle *output = [NSFileHandle fileHandleForUpdatingAtPath:sharedLogger.currentLogFile];
+    [output seekToEndOfFile];
+    [output writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [output closeFile];
+    
+    
+    
+}
+
++(void)logData:(NSData*)data
 {
     if (!sharedLogger)
     {
@@ -36,17 +65,14 @@ static Logger *sharedLogger;
         [sharedLogger setupNewLogFile];
     }
     
-    NSString *outputString = [NSString stringWithFormat:@"%@: %@\n",[[NSDate date] description],message];
-    
-    NSLog(@"file: %@ size: %@",sharedLogger.currentDataFile,[[sharedLogger.fileManager attributesOfItemAtPath:sharedLogger.currentDataFile error:nil] valueForKey:@"NSFileSize"]);
+    NSLog(@"wrote to data file: %@ size: %@",sharedLogger.currentDataFile,[[sharedLogger.fileManager attributesOfItemAtPath:sharedLogger.currentDataFile error:nil] valueForKey:@"NSFileSize"]);
     NSFileHandle *output = [NSFileHandle fileHandleForUpdatingAtPath:sharedLogger.currentDataFile];
     [output seekToEndOfFile];
-    [output writeData:[outputString dataUsingEncoding:NSUTF8StringEncoding]];
+    [output writeData:data];
     
     [output closeFile];
     
     [self updateDisplay];
-    
     
 }
 
@@ -55,7 +81,9 @@ static Logger *sharedLogger;
     // Upload log to Dropbox
     [[sharedLogger dbClient] uploadFile:[sharedLogger.currentDataFile lastPathComponent] toPath:@"/" withParentRev:nil fromPath:sharedLogger.currentDataFile];
     
-    [sharedLogger setupNewLogFile];
+    [sharedLogger setupNewDataFile];
+    
+    [Logger logDebug:[NSString stringWithFormat:@"Started new log at: %@",[[NSDate date] description]]];
     
     [self updateDisplay];
 }
@@ -74,17 +102,52 @@ static Logger *sharedLogger;
 
 +(void)updateDisplay
 {
-    [[[MCHP_MFIAppDelegate sharedDelegate] viewController]setNewLogFileName:[sharedLogger.currentDataFile lastPathComponent]];
+    // Set file name
+    sharedLogger.currentDisplayUpdateFileName = [sharedLogger.currentDataFile lastPathComponent];
     
+    
+    
+    // Set file size
     NSNumber *fileSize = [[sharedLogger.fileManager attributesOfItemAtPath:sharedLogger.currentDataFile error:nil] valueForKey:@"NSFileSize"];
-    NSString *fileSizeString = [self stringFromFileSize:[fileSize doubleValue]];
-    
+    sharedLogger.currentDisplayUpdateFileSize = [fileSize doubleValue];
+    NSString *fileSizeString = [self stringFromFileSize:sharedLogger.currentDisplayUpdateFileSize];
     if ([fileSizeString isEqualToString:@""])
+        { fileSizeString = @"0"; }
+    
+    
+    // Determine and set bytes per sec
+    // Don't update display if the log file has changed to a new name
+    if (sharedLogger.lastDisplayUpdateTime && [sharedLogger.currentDisplayUpdateFileName isEqualToString:sharedLogger.lastDisplayUpdateFileName])
     {
-        fileSizeString = @"0";
+        double timeSinceLastUpdate = [[NSDate date] timeIntervalSinceDate:sharedLogger.lastDisplayUpdateTime];
+        
+        double bytesSinceLastUpdate = sharedLogger.currentDisplayUpdateFileSize - sharedLogger.lastDisplayUpdateFileSize;
+        
+        double bytesPerSec = 0;
+        if (timeSinceLastUpdate > 0)
+        {
+            bytesPerSec = bytesSinceLastUpdate / timeSinceLastUpdate;
+        }
+        NSLog(@"bps: %f",bytesPerSec);
+        sharedLogger.currentBytesPerSec = [NSString stringWithFormat:@"%.02f",bytesPerSec];
+        
+    }
+    else
+    {
+        sharedLogger.currentBytesPerSec = @"n/a";
     }
     
+    
+    // Update display
+    [[[MCHP_MFIAppDelegate sharedDelegate] viewController]setNewLogFileName:sharedLogger.currentDisplayUpdateFileName];
     [[[MCHP_MFIAppDelegate sharedDelegate] viewController]setNewLogFileSize:fileSizeString];
+    sharedLogger.currentDisplayUpdateTime = [NSDate date];
+    [[[MCHP_MFIAppDelegate sharedDelegate] viewController]setNewLogBytesPerSec:sharedLogger.currentBytesPerSec];
+    
+    // Save display status
+    sharedLogger.lastDisplayUpdateFileName = sharedLogger.currentDisplayUpdateFileName;
+    sharedLogger.lastDisplayUpdateFileSize = sharedLogger.currentDisplayUpdateFileSize;
+    sharedLogger.lastDisplayUpdateTime = sharedLogger.currentDisplayUpdateTime;
 }
 
 -(void)initFileManager
@@ -118,6 +181,14 @@ static Logger *sharedLogger;
 
 
 -(void)setupNewLogFile
+
+{
+    sharedLogger.currentLogFile = [sharedLogger getNewLogFileName];
+    [sharedLogger.fileManager createFileAtPath:sharedLogger.currentLogFile contents:nil attributes:nil];
+}
+
+-(void)setupNewDataFile
+
 {
     sharedLogger.currentDataFile = [sharedLogger getNewDataFileName];
     [sharedLogger.fileManager createFileAtPath:sharedLogger.currentDataFile contents:nil attributes:nil];
@@ -136,7 +207,25 @@ static Logger *sharedLogger;
     NSString *theDate = [dateFormat stringFromDate:now];
     NSString *theTime = [timeFormat stringFromDate:now];
     
-    NSString *fileStr = [NSString stringWithFormat:@"%@_%@.txt", theDate,theTime];
+    NSString *fileStr = [NSString stringWithFormat:@"debug_%@_%@.txt", theDate,theTime];
+    
+    return [self.logsPath stringByAppendingPathComponent:fileStr];
+}
+
+-(NSString*)getNewLogFileName {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy_MM_dd"];
+    
+    NSDateFormatter *timeFormat = [[NSDateFormatter alloc] init];
+    [timeFormat setDateFormat:@"HH_mm_ss"];
+    
+    NSDate *now = [NSDate date];
+    
+    NSString *theDate = [dateFormat stringFromDate:now];
+    NSString *theTime = [timeFormat stringFromDate:now];
+    
+    NSString *fileStr = [NSString stringWithFormat:@"data_%@_%@.txt", theDate,theTime];
     
     return [self.logsPath stringByAppendingPathComponent:fileStr];
 }

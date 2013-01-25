@@ -136,21 +136,29 @@
 			r.length = 2;
 			while ((r.length + r.location) < [rxData length])
 			{
-				if([[rxData subdataWithRange:r] isEqualToData:pd])
-				{
-					if( (r.location + r.length) > [rxData length])
-						break;
-					r.location += 2;
-					r.length = [rxData length] - r.location;
-					len = [self readData:[rxData subdataWithRange:r]];
-					r.location += len;
-				}
-				else
-				{
-					r.location ++;
-				}
-				
-				r.length = 2;
+                @try
+                {
+                    
+                    if([[rxData subdataWithRange:r] isEqualToData:pd])
+                    {
+                        if( (r.location + r.length) > [rxData length])
+                            break;
+                        r.location += 2;
+                        r.length = [rxData length] - r.location;
+                        len = [self readData:[rxData subdataWithRange:r]];
+                        r.location += len;
+                    }
+                    else
+                    {
+                        r.location ++;
+                    }
+                    
+                    r.length = 2;
+                    
+                }
+                @catch (NSException *e) {
+                    NSLog(@"Warning: stream read failed.");
+                }
 			}
             
 			if(r.location >= [rxData length])
@@ -163,7 +171,15 @@
 				// reset the receiver with the bytes that were not consumed.
                 if (r.location + r.length <= rxData.length)
                 {
-                    [rxData setData:[rxData subdataWithRange:r]];
+                    @try
+                    {
+                     
+                        [rxData setData:[rxData subdataWithRange:r]];
+                    }
+                    
+                    @catch (NSException *e) {
+                        NSLog(@"Warning: stream reset failed.");
+                    }
                 }
                 else
                 {
@@ -259,7 +275,13 @@
 				range.location = len;
 				range.length = [txData length] - len;
                 // some data remaining
-				[txData setData:[txData subdataWithRange:range]];
+                @try
+                {
+                    [txData setData:[txData subdataWithRange:range]];
+                }
+                @catch (NSException *e) {
+                    NSLog(@"Warning: stream tx failed.");
+                }   
             }
             else
 			{ // no data remaining

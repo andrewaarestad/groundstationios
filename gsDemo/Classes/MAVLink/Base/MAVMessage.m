@@ -33,26 +33,33 @@
 
     MAVMessage *message = [[self alloc] init];
     
-    //FIXME create macro that adds correct number of bytes based
-    //on datatype
-    //Bring in magic number
-    [data getBytes:&magic range:NSMakeRange(0, 1)];
-    message.magic = [NSNumber numberWithUnsignedChar:magic];
-    //Bring in message length
-    [data getBytes:&len range:NSMakeRange(1, 1)];
-    message.len = [NSNumber numberWithUnsignedChar:len];
-    //Bring in packet sequence
-    [data getBytes:&seq range:NSMakeRange(2, 1)];
-    message.seq = [NSNumber numberWithUnsignedChar:seq];
-    //Bring in system id
-    [data getBytes:&sysid range:NSMakeRange(3, 1)];
-    message.sysid = [NSNumber numberWithUnsignedChar:sysid];
-    //Bring in sender component
-    [data getBytes:&compid range:NSMakeRange(4, 1)];
-    message.compid = [NSNumber numberWithUnsignedChar:compid];
-    //Bring in message ID
-    [data getBytes:&msgid range:NSMakeRange(5, 1)];
-    message.msgid = [NSNumber numberWithUnsignedChar:msgid];
+    @try
+    {
+        //FIXME create macro that adds correct number of bytes based
+        //on datatype
+        //Bring in magic number
+        [data getBytes:&magic range:NSMakeRange(0, 1)];
+        message.magic = [NSNumber numberWithUnsignedChar:magic];
+        //Bring in message length
+        [data getBytes:&len range:NSMakeRange(1, 1)];
+        message.len = [NSNumber numberWithUnsignedChar:len];
+        //Bring in packet sequence
+        [data getBytes:&seq range:NSMakeRange(2, 1)];
+        message.seq = [NSNumber numberWithUnsignedChar:seq];
+        //Bring in system id
+        [data getBytes:&sysid range:NSMakeRange(3, 1)];
+        message.sysid = [NSNumber numberWithUnsignedChar:sysid];
+        //Bring in sender component
+        [data getBytes:&compid range:NSMakeRange(4, 1)];
+        message.compid = [NSNumber numberWithUnsignedChar:compid];
+        //Bring in message ID
+        [data getBytes:&msgid range:NSMakeRange(5, 1)];
+        message.msgid = [NSNumber numberWithUnsignedChar:msgid];
+    }
+    @catch (NSException *e) {
+        NSLog(@"Warning: Tried to init NAVMessage with invalid data.");
+        return nil;
+    }
     
     //Verify length
     NSInteger headerEndIdx = 6;
@@ -67,7 +74,13 @@
         //The message length is as expected process message
         if(expectedEndIdx <= dataLength)
         {
-            message.payload = [NSData dataWithData:[data subdataWithRange:NSMakeRange(headerEndIdx, expectedEndIdx)]];
+            @try
+            {
+                message.payload = [NSData dataWithData:[data subdataWithRange:NSMakeRange(headerEndIdx, expectedEndIdx)]];
+            }
+            @catch (NSException *e) {
+                NSLog(@"Warning: MAVMessage had invalid payload.");
+            }
         }
         else
         {
@@ -77,8 +90,16 @@
     }
     else
     {
-        NSLog(@"Length is differnt than expect\nExpected: %i got %i",expectedEndIdx,dataLength);
-        message.payload = [NSData dataWithData:[data subdataWithRange:NSMakeRange(headerEndIdx, (dataLength - headerEndIdx))]];
+        NSLog(@"Warning: Length is differnt than expect\nExpected: %i got %i",expectedEndIdx,dataLength);
+        
+        @try
+        {
+            message.payload = [NSData dataWithData:[data subdataWithRange:NSMakeRange(headerEndIdx, (dataLength - headerEndIdx))]];
+            
+        }
+        @catch (NSException *e) {
+            NSLog(@"Warning: MAVMessage had invalid payload.");
+        }
     }
     return message;
 }
